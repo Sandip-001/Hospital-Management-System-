@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logoutUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import { User } from "@/types/auth";
+import { useAuth } from "@/providers/AuthProvider";
 
 interface HeaderProps {
   user: User;
@@ -19,6 +20,7 @@ interface HeaderProps {
 
 export default function UserMenu({ user }: HeaderProps) {
   const router = useRouter();
+  const { setUser } = useAuth();
 
   return (
     <DropdownMenu>
@@ -68,6 +70,7 @@ export default function UserMenu({ user }: HeaderProps) {
         <DropdownMenuItem
           onClick={() => {
             logoutUser();
+            setUser(null);
             router.push("/login");
           }}
         >

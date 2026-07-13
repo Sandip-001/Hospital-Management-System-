@@ -6,38 +6,39 @@ import { toast } from "sonner";
 
 import { getCurrentUser } from "@/lib/auth";
 import { UserRole } from "@/config/roles";
+import { useAuth } from "@/providers/AuthProvider";
 
 interface RoleGuardProps {
   allowedRole: UserRole;
   children: ReactNode;
 }
 
-export default function RoleGuard({
-  allowedRole,
-  children,
-}: RoleGuardProps) {
+export default function RoleGuard({ allowedRole, children }: RoleGuardProps) {
   const router = useRouter();
 
+  const { user, loading } = useAuth();
+
   useEffect(() => {
-    const user = getCurrentUser();
+    if (loading) return;
 
     if (!user) {
       router.replace("/login");
+
       return;
     }
 
     if (user.role !== allowedRole) {
-      toast.error("You are not authorized to access this module.");
+      toast.error("Unauthorized");
 
       router.replace(`/${user.role}/dashboard`);
     }
-  }, [allowedRole, router]);
+  }, [loading, user, allowedRole]);
 
-  const user = getCurrentUser();
+  if (loading) return null;
 
-  if (!user || user.role !== allowedRole) {
-    return null;
-  }
+  if (!user) return null;
+
+  if (user.role !== allowedRole) return null;
 
   return children;
 }

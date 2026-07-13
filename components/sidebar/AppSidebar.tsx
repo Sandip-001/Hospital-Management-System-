@@ -21,7 +21,7 @@ import { logoutUser } from "@/lib/auth";
 export default function AppSidebar() {
   const router = useRouter();
 
-  const { user } = useAuth();
+  const { user, setUser } = useAuth();
 
   if (!user) return null;
 
@@ -51,6 +51,7 @@ export default function AppSidebar() {
     "
           onClick={() => {
             logoutUser();
+            setUser(null);
             router.push("/login");
           }}
         >

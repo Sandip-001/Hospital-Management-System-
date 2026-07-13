@@ -41,6 +41,7 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
+import { useAuth } from "@/providers/AuthProvider";
 
 const LoginSchema = z.object({
   role: z.nativeEnum(UserRole),
@@ -54,6 +55,7 @@ type LoginValues = z.infer<typeof LoginSchema>;
 
 export default function LoginForm() {
   const router = useRouter();
+  const { setUser } = useAuth();
 
   const form = useForm<LoginValues>({
     resolver: zodResolver(LoginSchema),
@@ -73,6 +75,8 @@ export default function LoginForm() {
 
       return;
     }
+
+    setUser(user);
 
     toast.success("Login Successful");
 
@@ -174,7 +178,7 @@ export default function LoginForm() {
                   )}
                 />
 
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" variant="sky">
                   Login
                 </Button>
               </form>

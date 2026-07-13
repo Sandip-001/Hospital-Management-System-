@@ -9,7 +9,7 @@ export const RoleOptions = [
     value: UserRole.DOCTOR,
   },
   {
-    label: "Front Desk",
+    label: "Admission Desk",
     value: UserRole.ADMISSION,
   },
 ];

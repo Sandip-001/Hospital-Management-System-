@@ -2,18 +2,20 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { getCurrentUser } from "@/lib/auth";
+
 import LoginForm from "@/components/auth/LoginForm";
+import { useAuth } from "@/providers/AuthProvider";
 
 export default function LoginPage() {
   const router = useRouter();
 
-  useEffect(() => {
-    const user = getCurrentUser();
+  const { user, loading } = useAuth();
 
-    if (user) {
+  useEffect(() => {
+    if (!loading && user) {
       router.replace(`/${user.role}/dashboard`);
     }
-  }, [router]);
+  }, [loading, user]);
+  
   return <LoginForm />;
 }

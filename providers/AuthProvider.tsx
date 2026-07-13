@@ -10,10 +10,15 @@ interface AuthContextType {
   user: LoggedInUser | null;
 
   loading: boolean;
+
+  setUser: React.Dispatch<
+    React.SetStateAction<LoggedInUser | null>
+  >;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
+  setUser: () => {},
   loading: true,
 });
 
@@ -34,6 +39,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
       }}
     >
