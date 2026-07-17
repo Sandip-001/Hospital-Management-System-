@@ -8,7 +8,7 @@ const doctorSidebar: SidebarItem[] = [
     icon: LayoutDashboard,
   },
 
-  {
+  /*{
     label: "OPD",
     icon: Stethoscope,
     children: [
@@ -25,24 +25,40 @@ const doctorSidebar: SidebarItem[] = [
         href: "/doctor/opd/prescriptions",
       },
     ],
-  },
+  },*/
 
   {
     label: "IPD",
     icon: Activity,
     children: [
       {
-        label: "Admissions",
-        href: "/doctor/ipd/admissions",
+        label: "Doctor Ward Rounds",
+        href: "/doctor/ipd/ward-rounds",
       },
       {
-        label: "Rounds",
-        href: "/doctor/ipd/rounds",
+        label: "Review Vitals",
+        href: "/doctor/ipd/review-vitals",
       },
       {
-        label: "Discharge",
-        href: "/doctor/ipd/discharge",
+        label: "Review Lab Results",
+        href: "/doctor/ipd/review-lab-results",
       },
+      {
+        label: "Clinical Examination",
+        href: "/doctor/ipd/clinical-examination",
+      },
+      {
+        label: "Diagnosis Update",
+        href: "/doctor/ipd/diagnosis-update",
+      },
+      {
+        label: "Treatment Plan",
+        href: "/doctor/ipd/treatment-plan",
+      },
+      {
+        label: "Medicine Orders",
+        href: "/doctor/ipd/medicine-orders",
+      }
     ],
   },
 ];
