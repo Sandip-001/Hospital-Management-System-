@@ -18,6 +18,7 @@ import { UserRole } from "@/config/roles";
 
 import SidebarNavItem from "./SidebarNavItem";
 import SidebarSubMenu from "./SidebarSubMenu";
+import nurseSidebar from "@/config/sidebar/nurse";
 
 interface SidebarNavProps {
   role: UserRole;
@@ -26,7 +27,7 @@ interface SidebarNavProps {
 export default function SidebarNav({ role }: SidebarNavProps) {
   const pathname = usePathname();
 
-  const menu = role === UserRole.DOCTOR ? doctorSidebar : admissionSidebar;
+  const menu = role === UserRole.DOCTOR ? doctorSidebar : UserRole.NURSE ? nurseSidebar : admissionSidebar;
 
   const getActiveParent = () => {
     return (

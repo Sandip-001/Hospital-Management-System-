@@ -58,7 +58,15 @@ const doctorSidebar: SidebarItem[] = [
       {
         label: "Medicine Orders",
         href: "/doctor/ipd/medicine-orders",
-      }
+      },
+      {
+        label: "Investigation Orders",
+        href: "/doctor/ipd/investigation-orders",
+      },
+      {
+        label: "Discharge Decision",
+        href: "/doctor/ipd/discharge-decision", 
+      },
     ],
   },
 ];

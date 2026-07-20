@@ -4,7 +4,6 @@ import { useEffect, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
-import { getCurrentUser } from "@/lib/auth";
 import { UserRole } from "@/config/roles";
 import { useAuth } from "@/providers/AuthProvider";
 

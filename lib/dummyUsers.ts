@@ -42,4 +42,13 @@ export const dummyUsers: DummyUser[] = [
 
     avatar: "https://i.pravatar.cc/150?img=32",
   },
+
+  {
+    id: 3,
+    name: "Nurse Anjali",
+    email: "nurse@hospital.com",
+    password: "123456",
+    role: UserRole.NURSE,
+    avatar: "https://i.pravatar.cc/150?img=45",
+  },
 ];

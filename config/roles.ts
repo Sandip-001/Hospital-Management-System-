@@ -1,6 +1,7 @@
 export enum UserRole {
   DOCTOR = "doctor",
   ADMISSION = "admission",
+  NURSE = "nurse", 
 }
 
 export const RoleOptions = [
@@ -11,5 +12,9 @@ export const RoleOptions = [
   {
     label: "Admission Desk",
     value: UserRole.ADMISSION,
+  },
+  {
+    label: "Nurse",
+    value: UserRole.NURSE,
   },
 ];
