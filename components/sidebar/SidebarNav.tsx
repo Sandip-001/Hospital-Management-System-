@@ -27,7 +27,13 @@ interface SidebarNavProps {
 export default function SidebarNav({ role }: SidebarNavProps) {
   const pathname = usePathname();
 
-  const menu = role === UserRole.DOCTOR ? doctorSidebar : UserRole.NURSE ? nurseSidebar : admissionSidebar;
+  const sidebarMenus = {
+    [UserRole.DOCTOR]: doctorSidebar,
+    [UserRole.NURSE]: nurseSidebar,
+    [UserRole.ADMISSION]: admissionSidebar,
+  };
+
+  const menu = sidebarMenus[role] ?? admissionSidebar;
 
   const getActiveParent = () => {
     return (

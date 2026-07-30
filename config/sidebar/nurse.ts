@@ -15,6 +15,22 @@ const nurseSidebar: SidebarItem[] = [
           label: "Patient Arrive In Ward",
           href: "/nurse/ipd/patient-arrive-in-ward",
         },
+        {
+          label: "Bed Occupied",
+          href: "/nurse/ipd/bed-occupied",
+        },
+        {
+          label: "Initial Assessment",
+          href: "/nurse/ipd/initial-assessment",
+        },
+        {
+          label: "Vitals Recording",
+          href: "/nurse/ipd/vital-recording",
+        },
+        {
+          label: "Nursing Assessment",
+          href: "/nurse/ipd/nursing-assessment",
+        }
       ],
     },
 ];
